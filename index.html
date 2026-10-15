@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Шифратор</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="window">
+
+    <div class="titlebar">
+        <div class="titlebar-left">
+            <span class="app-icon"></span>
+            <span class="app-title">Шифратор</span>
+        </div>
+        <div class="titlebar-buttons">
+            <button class="tb-btn" type="button">&#8212;</button>
+            <button class="tb-btn" type="button">&#9633;</button>
+            <button class="tb-btn tb-close" type="button">&#10005;</button>
+        </div>
+    </div>
+
+    <div class="tabstrip">
+        <button class="tab active" data-tab="encrypt" type="button">Шифрование текста</button>
+        <button class="tab" data-tab="compare" type="button">Сравнение хеша</button>
+    </div>
+
+    <div class="page active" id="page-encrypt">
+        <div class="col">
+            <label class="field-label" for="inputText">Введите текст:</label>
+            <textarea id="inputText" class="field" spellcheck="false"></textarea>
+        </div>
+
+        <div class="middle">
+            <button id="encryptBtn" class="btn" type="button">Зашифровать ==&gt;</button>
+        </div>
+
+        <div class="col">
+            <label class="field-label" for="outputHash">Хэш текста:</label>
+            <textarea id="outputHash" class="field" readonly spellcheck="false"></textarea>
+        </div>
+    </div>
+
+    <div class="page" id="page-compare">
+        <div class="left-column">
+            <label class="field-label">Загрузите текст хэша:</label>
+            <button id="loadHashBtn" class="btn wide" type="button">Загрузить хэш</button>
+            <input type="file" id="hashFileInput" accept=".txt" hidden>
+
+            <label class="field-label gap">Загрузите файл для сравнения хэша:</label>
+            <button id="loadFileBtn" class="btn wide" type="button">Загрузить файл</button>
+            <input type="file" id="targetFileInput" hidden>
+
+            <button id="compareBtn" class="btn wide gap-top" type="button">Сравнить</button>
+        </div>
+
+        <div class="right-column">
+            <span class="result-caption">ИТОГ:</span>
+            <div id="resultBox" class="result-box"></div>
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
